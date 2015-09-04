@@ -1,0 +1,175 @@
+<body>
+    <style>
+        .base-circle-grid {
+            position: absolute;
+            border: 1px dashed rgba(255,0,0,.5);
+            border-radius: 50%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: transparent url(skull.png) center center no-repeat;
+        }
+        
+        .base-circle-grid-2 {
+            transform: translateY(calc(-1 * (33vmin / 2)));
+        }
+        
+        .base-circle-grid-3 {
+            transform: rotate(60deg) translateY(calc(-1 * (33vmin / 2))) rotate(-60deg);
+        }
+        
+        .base-circle-grid-4 {
+            transform: rotate(120deg) translateY(calc(-1 * (33vmin / 2))) rotate(-120deg);
+        }
+        
+        .base-circle-grid-5 {
+            transform: rotate(180deg) translateY(calc(-1 * (33vmin / 2))) rotate(-180deg);
+        }
+        
+        .base-circle-grid-6 {
+            transform: rotate(240deg) translateY(calc(-1 * (33vmin / 2))) rotate(-240deg);
+        }
+        
+        .base-circle-grid-7 {
+            transform: rotate(300deg) translateY(calc(-1 * (33vmin / 2))) rotate(-300deg);
+        }
+    </style>
+    <script>
+        function flowerCircle(gridSize, offset, angle) {
+            var circle = document.createElement("div");
+            circle.classList.add("base-circle-grid");
+            circle.style.width = gridSize;
+            circle.style.height = gridSize;
+            circle.style.webkitTransform = "rotate(" + angle + "deg) translateY(" + offset + ") rotate(-" + angle + "deg)";
+            
+            return circle;
+        }
+        
+        function createFlower (depth) {
+            var baseCircleGridSize = "33vmin";
+            var rotateCount = 0;
+            var petal, depthPetal, buffPetal;
+            
+            document.body.appendChild(flowerCircle(baseCircleGridSize, "", rotateCount));
+            
+            for (var i = 0; i < 6; i++) {
+                // inserindo o nó dentro dele mesmo funciona para todos os níveis
+                petal = flowerCircle(baseCircleGridSize, "calc(-1 * (33vmin / 2))", rotateCount);
+                
+                if (depth > 0) {
+                    buffPetal = petal;
+                    depthPetal = petal.cloneNode();
+                    
+                    for (var j = 1; j < depth; j++) {
+                        buffPetal = buffPetal.cloneNode();
+                        buffPetal.appendChild(depthPetal);
+                        depthPetal = buffPetal;
+                    }
+                    
+                    petal.appendChild(depthPetal);
+                }
+                
+                document.body.appendChild(petal);
+
+                rotateCount += 60;
+            }
+            
+            console.log("Done creating flower");
+        }
+        
+        createFlower(10);
+        
+//         var baseCircleGrid = document.createElement("div");
+//         var baseCircleGridSize = "33vmin";
+        
+//         baseCircleGrid.classList.add("base-circle-grid");
+        
+//         baseCircleGrid.style.width = baseCircleGridSize;
+//         baseCircleGrid.style.height = baseCircleGridSize;
+
+//         document.body.appendChild(baseCircleGrid);
+        
+// //////////////////////////////////////
+        
+//         var baseCircleGrid = document.createElement("div");
+//         var baseCircleGridSize = "33vmin";
+        
+//         baseCircleGrid.classList.add("base-circle-grid");
+//         baseCircleGrid.classList.add("base-circle-grid-2");
+        
+//         baseCircleGrid.style.width = baseCircleGridSize;
+//         baseCircleGrid.style.height = baseCircleGridSize;
+
+//         document.body.appendChild(baseCircleGrid);
+                
+// //////////////////////////////////////
+
+//         var baseCircleGrid = document.createElement("div");
+//         var baseCircleGridSize = "33vmin";
+        
+//         baseCircleGrid.classList.add("base-circle-grid");
+//         baseCircleGrid.classList.add("base-circle-grid-3");
+        
+//         baseCircleGrid.style.width = baseCircleGridSize;
+//         baseCircleGrid.style.height = baseCircleGridSize;
+
+//         document.body.appendChild(baseCircleGrid);
+        
+// //////////////////////////////////////
+
+//         var baseCircleGrid = document.createElement("div");
+//         var baseCircleGridSize = "33vmin";
+        
+//         baseCircleGrid.classList.add("base-circle-grid");
+//         baseCircleGrid.classList.add("base-circle-grid-4");
+        
+//         baseCircleGrid.style.width = baseCircleGridSize;
+//         baseCircleGrid.style.height = baseCircleGridSize;
+
+//         document.body.appendChild(baseCircleGrid);
+        
+// //////////////////////////////////////
+
+//         var baseCircleGrid = document.createElement("div");
+//         var baseCircleGridSize = "33vmin";
+        
+//         baseCircleGrid.classList.add("base-circle-grid");
+//         baseCircleGrid.classList.add("base-circle-grid-5");
+        
+//         baseCircleGrid.style.width = baseCircleGridSize;
+//         baseCircleGrid.style.height = baseCircleGridSize;
+
+//         document.body.appendChild(baseCircleGrid);
+        
+// //////////////////////////////////////
+
+//         var baseCircleGrid = document.createElement("div");
+//         var baseCircleGridSize = "33vmin";
+        
+//         baseCircleGrid.classList.add("base-circle-grid");
+//         baseCircleGrid.classList.add("base-circle-grid-6");
+        
+//         baseCircleGrid.style.width = baseCircleGridSize;
+//         baseCircleGrid.style.height = baseCircleGridSize;
+
+//         document.body.appendChild(baseCircleGrid);
+        
+// //////////////////////////////////////
+
+//         var baseCircleGrid = document.createElement("div");
+//         var baseCircleGridSize = "33vmin";
+        
+//         baseCircleGrid.classList.add("base-circle-grid");
+//         baseCircleGrid.classList.add("base-circle-grid-7");
+        
+//         baseCircleGrid.style.width = baseCircleGridSize;
+//         baseCircleGrid.style.height = baseCircleGridSize;
+
+//         document.body.appendChild(baseCircleGrid);
+        
+// //////////////////////////////////////
+        
+    </script>
+</body>
