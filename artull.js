@@ -14,7 +14,7 @@
             var rotateCount = 0;
             var petal, depthPetal, buffPetal;
             
-            document.body.appendChild(flowerCircle(baseCircleGridSize, "", rotateCount));
+            flower.appendChild(flowerCircle(baseCircleGridSize, "", rotateCount));
             
             for (var i = 0; i < 6; i++) {
                 // inserindo o nó dentro dele mesmo funciona para todos os níveis
@@ -33,7 +33,7 @@
                     petal.appendChild(depthPetal);
                 }
                 
-                document.body.appendChild(petal);
+                flower.appendChild(petal);
 
                 rotateCount += 60;
             }
@@ -41,97 +41,5 @@
             console.log("Done creating flower");
         }
         
-        createFlower(10);
-        
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-        
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-2");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-                
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-3");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-4");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-5");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-6");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-7");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-        
-    </script>
-</body>
+        createFlower(0);
+})();

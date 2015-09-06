@@ -1,8 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Polka Dotzzcript</title>
+    </head>
 <body>
     <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #flower {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        canvas {
+           background: #fff;
+        }
+        
         .base-circle-grid {
             position: absolute;
-            border: 1px dashed rgba(255,0,0,.5);
+            border: 1px dashed rgba(0,0,255,1);
             border-radius: 50%;
             top: 0;
             right: 0;
@@ -35,141 +57,23 @@
         .base-circle-grid-7 {
             transform: rotate(300deg) translateY(calc(-1 * (33vmin / 2))) rotate(-300deg);
         }
+        
+        
+        x.base-circle-grid {
+            animation-name: spin;
+            animation-duration: 4000ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        @keyframes spin {from {transform:rotate(0deg);}to { transform:rotate(360deg);}}
+        
     </style>
-    <script>
-        function flowerCircle(gridSize, offset, angle) {
-            var circle = document.createElement("div");
-            circle.classList.add("base-circle-grid");
-            circle.style.width = gridSize;
-            circle.style.height = gridSize;
-            circle.style.webkitTransform = "rotate(" + angle + "deg) translateY(" + offset + ") rotate(-" + angle + "deg)";
-            
-            return circle;
-        }
-        
-        function createFlower (depth) {
-            var baseCircleGridSize = "33vmin";
-            var rotateCount = 0;
-            var petal, depthPetal, buffPetal;
-            
-            document.body.appendChild(flowerCircle(baseCircleGridSize, "", rotateCount));
-            
-            for (var i = 0; i < 6; i++) {
-                // inserindo o nó dentro dele mesmo funciona para todos os níveis
-                petal = flowerCircle(baseCircleGridSize, "calc(-1 * (33vmin / 2))", rotateCount);
-                
-                if (depth > 0) {
-                    buffPetal = petal;
-                    depthPetal = petal.cloneNode();
-                    
-                    for (var j = 1; j < depth; j++) {
-                        buffPetal = buffPetal.cloneNode();
-                        buffPetal.appendChild(depthPetal);
-                        depthPetal = buffPetal;
-                    }
-                    
-                    petal.appendChild(depthPetal);
-                }
-                
-                document.body.appendChild(petal);
-
-                rotateCount += 60;
-            }
-            
-            console.log("Done creating flower");
-        }
-        
-        createFlower(10);
-        
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-        
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-2");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-                
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-3");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-4");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-5");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-6");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-
-//         var baseCircleGrid = document.createElement("div");
-//         var baseCircleGridSize = "33vmin";
-        
-//         baseCircleGrid.classList.add("base-circle-grid");
-//         baseCircleGrid.classList.add("base-circle-grid-7");
-        
-//         baseCircleGrid.style.width = baseCircleGridSize;
-//         baseCircleGrid.style.height = baseCircleGridSize;
-
-//         document.body.appendChild(baseCircleGrid);
-        
-// //////////////////////////////////////
-        
-    </script>
+    
+    <div id="flower"></div>
+    
+    <script type="text/javascript" src="artull.js"></script>
+    <script type="text/javascript" src="jazzparticles.js"></script>
 </body>
+    
+</html>
