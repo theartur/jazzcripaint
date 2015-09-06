@@ -1,3 +1,2 @@
-Polka Dotzzcript
-
-Procedural DOM based polka dots
+# jazzcripaint
+Artful Procedural Canvas Paint with Image Brushing
