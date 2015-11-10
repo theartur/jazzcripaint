@@ -262,7 +262,7 @@
             bx.fillRect(0,0,buffer.width,buffer.height);
 
             // destination atop makes a result with an alpha channel identical to fg, but with all pixels retaining their original color *as far as I can tell*
-            bx.globalCompositeOperation = "destination-atop";
+            bx.globalCompositeOperation = "destination-in" || "darken" || "overlay" || "destination-atop";
             bx.imageSmoothingEnabled = false;
             bx.drawImage(artull,0,0, buffer.width, buffer.height);
 
@@ -356,11 +356,12 @@
     window.onclick = function (e) {
         console.log(e);
         colors = rndPallete();
-        var max = list.length;
-        for (var i = 0; i < max; i++) {
-            list[0].destroy();
-            list.splice(0, 1);
-        }
+        list = [];
+//         var max = list.length;
+//         for (var i = 0; i < max; i++) {
+//             list[0].destroy();
+//             list.splice(0, 1);
+//         }
         
         var shooting = 5;
         while(shooting--) {
